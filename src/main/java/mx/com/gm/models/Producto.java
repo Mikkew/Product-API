@@ -2,6 +2,8 @@ package mx.com.gm.models;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -16,7 +18,9 @@ public class Producto implements Serializable {
     @Column(name="idProducto")
     private Long idProducto;
     
-    @Column(name = "nombre", nullable = false, length = 30)
+    @NotEmpty
+    @Size(min= 4)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
     
 }
